@@ -1,0 +1,26 @@
+docker commands 
+
+
+#current containers status:
+docker -ps
+
+#start container:
+docker start <container name>
+
+#docker list all containers, and their status
+docker container ls -a
+
+#find ip address of a container
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+#debugging docker container
+1. >docker events&
+2. >docker start <container name>
+3. docker logs <container name>
+
+#stop and remove all containers
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+#logging / debugging
+$ docker events
