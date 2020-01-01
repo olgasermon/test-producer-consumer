@@ -1,5 +1,7 @@
 docker commands 
 
+#run the containers in detached mode (in the background)
+docker-compose up -d
 
 #current containers status:
 docker -ps
@@ -22,5 +24,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' con
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
 
-#logging / debugging
-$ docker events
+#restart docker service
+
+service docker stop
+service docker start
